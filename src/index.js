@@ -1,6 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
+function App(){
+  const [manager, setManager] = useState("Alex")
+  const [status, setStatus] = useState("Open")
+  return (
+    <>
+      <div>
+        <h1>Manager on duty: {manager}</h1>
+        <button onClick={() => setManager("Rachel")}>New Manager</button>
+      </div>
+      <div>
+        <h1>Status: {status}</h1>
+        <button onClick={() => setStatus("Closed")}>Close</button>
+        <button onClick={() => setStatus("Open")}>Open</button>
+      </div>
+    </>
+  )
+}
+
+ReactDOM.render(
+  <App/>, 
+  document.getElementById('root')
+);
 
 /*
 PASSING PARAMETERS
@@ -45,7 +68,6 @@ function App({items}){
     </ul>
   )
 }
-*/
 
 function Lake({name}){
   return(
@@ -68,8 +90,4 @@ function App({season}){
     </div>
   )
 }
-
-ReactDOM.render(
-  <App season="sumer"/>, 
-  document.getElementById('root')
-);
+*/
